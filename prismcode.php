@@ -15,10 +15,9 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.plugin.plugin');
 
-class plgSystemCedHighlightJs extends JPlugin
+class plgSystemPrismcode extends JPlugin
 {
 
-    const HIGHLIGHT_JS = "9.4.0";
 
     function plgSystemAdd2Home(& $subject, $config)
     {
@@ -36,12 +35,12 @@ class plgSystemCedHighlightJs extends JPlugin
         }
         $document = JFactory::getDocument();
         
-        $document->addScript("//cdnjs.cloudflare.com/ajax/libs/highlight.js/" . self::HIGHLIGHT_JS . "/highlight.min.js");
+        $document->addScript("/media/prismjs/js/prismjs.js");
 
         $skins = $this->params->get('skins', 'default.min.css');
-        $document->addStyleSheet("//cdnjs.cloudflare.com/ajax/libs/highlight.js/" . self::HIGHLIGHT_JS . "/styles/$skins");
+        $document->addStyleSheet("$skins");
 
-        $document->addScriptDeclaration("\nhljs.initHighlightingOnLoad();\n");
+        //$document->addScriptDeclaration("\nhljs.initHighlightingOnLoad();\n");
     }
 
 }
